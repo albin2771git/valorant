@@ -1,10 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:valorant/src/core/constants/app_colors.dart';
 import 'package:valorant/src/core/constants/app_strings.dart';
-import '../../../../main.dart';
-import '../../agent_detail_page/agent_detail-page.dart';
+import 'agent_detail_page/agent_detail-page.dart';
+import '../provider/agent_provider.dart';
 
 class AgentListViewUI extends ConsumerStatefulWidget {
   const AgentListViewUI({super.key});
@@ -21,7 +22,7 @@ class _AgentListViewUIState extends ConsumerState<AgentListViewUI> {
     return Scaffold(
         appBar: AppBar(
           title: const Text(
-            AppStrings.valorant,
+            AppStrings.Agents,
             style: TextStyle(
                 color: AppColors.primaryColor,
                 fontWeight: FontWeight.bold,
@@ -56,6 +57,10 @@ class _AgentListViewUIState extends ConsumerState<AgentListViewUI> {
                                             name: apiData[index]
                                                 .displayName
                                                 .toString(),
+                                            description: apiData[index]
+                                                .description
+                                                .toString(),
+                                            abilities: apiData[index].abilities,
                                           )));
                             },
                             child: Padding(
@@ -74,8 +79,14 @@ class _AgentListViewUIState extends ConsumerState<AgentListViewUI> {
                                         maxRadius: 60,
                                         minRadius: 40,
                                         backgroundColor: AppColors.white,
-                                        child: Image.network(
-                                            apiData[index].displayIcon ?? ""),
+                                        child: apiData[index].displayIcon ==
+                                                null
+                                            ? const CupertinoActivityIndicator(
+                                                color: AppColors.primaryColor,
+                                              )
+                                            : Image.network(
+                                                apiData[index].displayIcon ??
+                                                    ""),
                                       ),
                                     ),
                                     const SizedBox(

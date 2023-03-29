@@ -11,6 +11,8 @@ import 'package:valorant/src/features/coustom_widgets/drawer.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import '../../core/constants/app_colors.dart';
+import '../buddies/buddies_list_ui.dart';
+import '../bundles/widgets/bundle_ui.dart';
 import '../coustom_widgets/list_tile.dart';
 
 class HomePage extends StatefulWidget {
@@ -109,11 +111,21 @@ class _HomePageState extends State<HomePage> {
               ),
               CommonListTile(
                 name: category[1],
-                callback: () {},
+                callback: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const BuddiesList())));
+                },
               ),
               CommonListTile(
                 name: category[2],
-                callback: () {},
+                callback: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const BundleUI())));
+                },
               ),
               CommonListTile(
                 name: category[3],
