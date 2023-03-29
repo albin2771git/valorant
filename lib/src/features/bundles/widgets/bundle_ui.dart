@@ -28,7 +28,7 @@ class _BundleUIState extends ConsumerState<BundleUI> {
                 fontWeight: FontWeight.bold),
           ),
         ),
-        body: apidata == null
+        body: apidata != null
             ? Container(
                 width: _size.width,
                 // height: _size.width,
