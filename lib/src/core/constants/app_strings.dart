@@ -4,4 +4,5 @@ class AppStrings {
   static const String Agents = "Agents";
   static const String bundle = "Bundles";
   static const String map = "Map";
+  static const String weapon = "Weapon";
 }

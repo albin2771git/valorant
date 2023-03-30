@@ -1,20 +1,15 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:path_provider/path_provider.dart';
-
 import 'package:valorant/src/core/constants/app_strings.dart';
 import 'package:valorant/src/features/agent/widgets/agents_list_view.dart';
 import 'package:valorant/src/features/coustom_widgets/drawer.dart';
-import 'package:pdf/pdf.dart';
-import 'package:pdf/widgets.dart' as pw;
 import 'package:valorant/src/features/map/widgets/maps_listing_ui.dart';
 import '../../core/constants/app_colors.dart';
+import '../agent/agent_carousel.dart';
 import '../buddies/buddies_list_ui.dart';
 import '../bundles/widgets/bundle_ui.dart';
 import '../coustom_widgets/list_tile.dart';
+import '../weapon/widgets/weapon_list_ui.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -29,20 +24,6 @@ class _HomePageState extends State<HomePage> {
     "Buddies",
     "Bundles",
     "Maps",
-    "Ceremonies",
-    "Competitive Tiers",
-    "Content Tires",
-    "Contracts",
-    "Curencies",
-    "Events",
-    "GameModes",
-    "Gear",
-    "Level Borders",
-    "Player Cards",
-    "Player Titles",
-    "Seasons",
-    "Sprays",
-    "Themes",
     "Weapons",
   ];
 
@@ -141,62 +122,10 @@ class _HomePageState extends State<HomePage> {
                 name: category[4],
                 callback: () {},
               ),
-              CommonListTile(
-                name: category[5],
-                callback: () {},
+              const SizedBox(
+                height: 15,
               ),
-              CommonListTile(
-                name: category[6],
-                callback: () {},
-              ),
-              CommonListTile(
-                name: category[7],
-                callback: () {},
-              ),
-              CommonListTile(
-                name: category[8],
-                callback: () {},
-              ),
-              CommonListTile(
-                name: category[9],
-                callback: () {},
-              ),
-              CommonListTile(
-                name: category[10],
-                callback: () {},
-              ),
-              CommonListTile(
-                name: category[11],
-                callback: () {},
-              ),
-              CommonListTile(
-                name: category[12],
-                callback: () {},
-              ),
-              CommonListTile(
-                name: category[13],
-                callback: () {},
-              ),
-              CommonListTile(
-                name: category[14],
-                callback: () {},
-              ),
-              CommonListTile(
-                name: category[15],
-                callback: () {},
-              ),
-              CommonListTile(
-                name: category[16],
-                callback: () {},
-              ),
-              CommonListTile(
-                name: category[17],
-                callback: () {},
-              ),
-              CommonListTile(
-                name: category[18],
-                callback: () {},
-              ),
+              const AgentCarousel(),
             ],
           )),
         )
