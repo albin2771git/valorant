@@ -10,6 +10,7 @@ import 'package:valorant/src/features/agent/widgets/agents_list_view.dart';
 import 'package:valorant/src/features/coustom_widgets/drawer.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
+import 'package:valorant/src/features/map/widgets/maps_listing_ui.dart';
 import '../../core/constants/app_colors.dart';
 import '../buddies/buddies_list_ui.dart';
 import '../bundles/widgets/bundle_ui.dart';
@@ -27,6 +28,7 @@ class _HomePageState extends State<HomePage> {
     "Agents",
     "Buddies",
     "Bundles",
+    "Maps",
     "Ceremonies",
     "Competitive Tiers",
     "Content Tires",
@@ -36,7 +38,6 @@ class _HomePageState extends State<HomePage> {
     "GameModes",
     "Gear",
     "Level Borders",
-    "Maps",
     "Player Cards",
     "Player Titles",
     "Seasons",
@@ -129,7 +130,12 @@ class _HomePageState extends State<HomePage> {
               ),
               CommonListTile(
                 name: category[3],
-                callback: () {},
+                callback: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const MapListing())));
+                },
               ),
               CommonListTile(
                 name: category[4],
